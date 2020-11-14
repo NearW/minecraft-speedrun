@@ -3,8 +3,8 @@ const fs = require("fs")
 
 function startServer() {
     const { MIN_RAM, MAX_RAM, OP } = JSON.parse(fs.readFileSync("speedrun.json"))
-    const mc = spawn("java", ["-d64", `-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])
     exec("rmdir /s /q world")
+    const mc = spawn("java", ["-d64", `-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])
 
     mc.stdout.on("data", (data) => {
         // Redirect stdout

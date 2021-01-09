@@ -18,12 +18,12 @@ async function startServer() {
 		console.log(`${data}`)
 
 		if (data.includes('For help, type "help"')) {
-			for (let player in WHITELIST) {
+			for (let player of WHITELIST) {
 				console.log(`Adding ${player} to whitelist.`)
 				server.stdin.write(`/whitelist add ${player}\n`)
 			}
 
-			for (let op in OP) {
+			for (let op of OP) {
 				console.log(`Making ${op} an operator.`)
 				server.stdin.write(`/op ${op}\n`)
 			}

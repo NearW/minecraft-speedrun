@@ -3,7 +3,7 @@ import { promises } from "fs"
 import { Configuration } from "./config/Configuration"
 
 async function startServer() {
-	const json = await promises.readFile("speedrun.json").toString()
+	const json = await promises.readFile("speedrun.json", "utf-8")
 	const configuration = JSON.parse(json) as Configuration
 	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS } = configuration
 
@@ -19,10 +19,12 @@ async function startServer() {
 
 		if (data.includes('For help, type "help"')) {
 			for (let player in WHITELIST) {
+				console.log(`Adding ${player} to whitelist.`)
 				server.stdin.write(`/whitelist add ${player}\n`)
 			}
 
 			for (let op in OP) {
+				console.log(`Making ${op} an operator.`)
 				server.stdin.write(`/op ${op}\n`)
 			}
 			server.stdin.write("/save-off\n")

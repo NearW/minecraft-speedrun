@@ -19,6 +19,7 @@ This project provides a better startup for a speedrun server as it automatically
 -   Update the `speedrun.json` with the desired settings
 -   Execute `Start.bat` to launch your server
 -   If you want to enable datapacks, simply put them in a folder named `datapacks` inside the root folder and enable it in `speedrun.json`
+-   If you want to enable setseeds, simply put them in the `speedrun.json`. It will remove one seed from the list on each restart and create a map with that seed.
 
 ## Disclaimer
 

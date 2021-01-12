@@ -28,7 +28,7 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
 
 -   Edit `speedrun.json` with your desired settings. This is the only downloaded file you should change.
 
-```json
+```ts
 {
     "MIN_RAM": 8, // Minimum allocated RAM in GB, -Xms
     "MAX_RAM": 10, // Maximum allocated RAM in GB, -Xmx

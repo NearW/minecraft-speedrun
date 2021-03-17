@@ -17,12 +17,10 @@ This project provides a better startup for a speedrun server as it automatically
 
 -   Move files to the server folder
 -   Update the `speedrun.json` with the desired settings
--   Execute `Server.bat` to launch your server
+-   Execute `Server.bat` or `Server.sh` to launch your server
 -   If you want to enable datapacks, simply put them in a folder named `datapacks` inside the root folder
 
 ## Disclaimer
-
-This only works on Windows servers.
 
 With this setup entering commands directly to the terminal is not possible anymore.
 Please set the operators name in the configuration, so that one player can use the in-game

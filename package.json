@@ -23,6 +23,7 @@
 	"homepage": "https://github.com/NearW/minecraft-speedrun#readme",
 	"devDependencies": {
 		"@types/node": "^14.14.20",
+		"@types/shelljs": "^0.8.8",
 		"husky": "^4.3.7",
 		"prettier": "^2.2.1",
 		"pretty-quick": "^3.1.0",
@@ -35,5 +36,9 @@
 		"hooks": {
 			"pre-commit": "pretty-quick --staged"
 		}
+	},
+	"dependencies": {
+		"rimraf": "^3.0.2",
+		"shelljs": "^0.8.4"
 	}
 }

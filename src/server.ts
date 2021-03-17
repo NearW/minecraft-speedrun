@@ -1,13 +1,15 @@
-import { spawn, exec } from "child_process"
+import { spawn } from "child_process"
 import { promises } from "fs"
 import { Configuration } from "./config/Configuration"
+import shell from "shelljs"
+import rimraf from "rimraf"
 
 async function startServer() {
 	const json = await promises.readFile("speedrun.json", "utf-8")
 	const configuration = JSON.parse(json) as Configuration
 	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS } = configuration
 
-	exec("rmdir /s /q world")
+	rimraf.sync("world")
 
 	await initSeed(SEEDS, configuration)
 
@@ -30,7 +32,7 @@ async function startServer() {
 			server.stdin.write("/save-off\n")
 
 			if (DATA_PACK) {
-				exec("Xcopy /E /I datapacks world\\datapacks")
+				shell.cp("-Rf", "datapacks/.", "world/datapacks")
 				server.stdin.write("/reload\n")
 			}
 		}

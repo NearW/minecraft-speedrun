@@ -1,8 +1,8 @@
 {
 	"MIN_RAM": 8,
 	"MAX_RAM": 10,
-	"OP": ["Thasio"],
-	"WHITELIST": ["Thasio"],
+	"OP": ["Notch"],
+	"WHITELIST": ["Notch"],
 	"DATA_PACK": false,
 	"SEEDS": [12345, 6789]
 }

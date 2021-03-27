@@ -32,8 +32,8 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
 {
     "MIN_RAM": 8, // Minimum allocated RAM in GB, -Xms
     "MAX_RAM": 10, // Maximum allocated RAM in GB, -Xmx
-    "OP": ["Thasio"], // List of operators
-    "WHITELIST": ["Thasio"], // List of whitelisted players
+    "OP": ["Notch"], // List of operators
+    "WHITELIST": ["Notch"], // List of whitelisted players
     "DATA_PACK": false, // set to true, if datapacks should be copied into the world
     "SEEDS": [12345, 6789] // List of set seeds that are played one by one, set [] to disable this option
 }

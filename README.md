@@ -34,7 +34,7 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
     "OP": ["Notch"], // List of operators
     "WHITELIST": ["Notch"], // List of whitelisted players
     "DATA_PACK": false, // set to true, if datapacks should be copied into the world
-    "SEEDS": [12345, 6789] // List of set seeds that are played one by one, set [] to disable this option
+    "SEEDS": ["-9223372036854775808", "9223372036854775807"] // List of set seeds that are played one by one, set [] to disable this option
 }
 ```
 

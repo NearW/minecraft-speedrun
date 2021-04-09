@@ -4,5 +4,5 @@
 	"OP": ["Notch"],
 	"WHITELIST": ["Notch"],
 	"DATA_PACK": false,
-	"SEEDS": [12345, 6789]
+	"SEEDS": ["-9223372036854775808", "9223372036854775807"]
 }

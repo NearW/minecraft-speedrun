@@ -4,9 +4,9 @@ import { promises } from "fs"
 
 const FILE_NAME = "server.properties"
 
-export async function initSeed(seeds: number[], configuration: Configuration) {
+export async function initSeed(seeds: string[], configuration: Configuration) {
 	if (seeds?.length > 0) {
-		await setSeed([seeds])
+		await setSeed(seeds[0])
 		await removeSeed(configuration)
 	} else {
 		await setSeed("")

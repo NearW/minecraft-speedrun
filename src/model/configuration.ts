@@ -4,5 +4,5 @@ export interface Configuration {
 	OP: string[]
 	WHITELIST: string[]
 	DATA_PACK: boolean
-	SEEDS: number[]
+	SEEDS: string[]
 }

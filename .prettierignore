@@ -2,6 +2,7 @@
 node_modules
 build
 *.bat
+*.sh
 .gitignore
 .prettierignore
 dist/

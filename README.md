@@ -22,7 +22,6 @@ This project provides a better startup for a speedrun server as it automatically
     -   spawn-protection=0
     -   allow-flight=true
     -   level-name=world
-    -   view-distance=16
 
 _Note: Enabling flight will prevent random disconnects when traveling too fast via boat, riding a horse or other activities._
 
@@ -39,9 +38,6 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
 }
 ```
 
-_Note: OP and WHITELIST is required in order to set an initial operator. The server console won't be interactive anymore when using this script.
-Please add people to the whitelist via ingame commands, e.g /whitelist add <PLAYER>_
-
 ### Datapacks
 
 In order to automatically add datapacks to your world on each restart, add a folder named `datapacks` to the root of your
@@ -51,9 +47,3 @@ minecraft server and put the unzipped datapacks inside and enable it in the `spe
 
 Add seeds to the `SEEDS` list, if you want to restart the world with set seeds. On each restart, the first seed of the list will be loaded and removed from the list.
 This is really helpful, if you want to do some speedrun battles with a pool of set seeds.
-
-## Disclaimer
-
-With this setup entering commands directly to the terminal is not possible anymore.
-Please set the operators name in the configuration, so that one player can use the in-game
-commands to add all players to the whitelist.

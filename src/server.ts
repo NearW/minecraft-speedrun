@@ -13,7 +13,7 @@ async function startServer() {
 	deleteWorldFolder()
 	await initSeed(SEEDS, configuration)
 
-	const server = spawn("java", ["-d64", `-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])
+	const server = spawn("java", [`-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])
 	redirectStdio(server)
 
 	server.stdout.on("data", data => {

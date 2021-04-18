@@ -17,14 +17,10 @@ async function setSeed(seed) {
 	console.log(`Setting seed ${seed} ...`)
 	const serverProperties = await promises.readFile(FILE_NAME, "utf-8")
 	const key = "level-seed="
-	const start = serverProperties.indexOf("level-seed") + key.length
-	let end = start
+	const start = serverProperties.indexOf(key) + key.length
+	const end = serverProperties.indexOf("\n", start)
 
-	while (!isNaN(+serverProperties[end])) {
-		end++
-	}
-
-	const updated = serverProperties.substring(0, start) + seed + "\n" + serverProperties.substring(end)
+	const updated = serverProperties.substring(0, start) + seed + serverProperties.substring(end)
 
 	await promises.writeFile(FILE_NAME, updated, "utf-8")
 }

@@ -7,4 +7,5 @@ export interface Configuration {
 	SEEDS: string[]
 	AUTO_SAVE: boolean
 	KEEP_WORLDS: boolean
+	LOAD_WORLD: string
 }

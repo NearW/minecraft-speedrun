@@ -6,5 +6,6 @@
 	"DATA_PACK": false,
 	"SEEDS": ["-9223372036854775808", "9223372036854775807"],
 	"AUTO_SAVE": false,
-	"KEEP_WORLDS": false
+	"KEEP_WORLDS": false,
+	"LOAD_WORLD": "world_2021-05-21_15-31-24"
 }

@@ -16,20 +16,22 @@ export async function initSeed(seeds: string[], configuration: Configuration) {
 	}
 }
 
+export async function setWorld(world: string) {
+	console.log(`Setting world ${world} ...`)
+	const serverProperties = await promises.readFile(FILE_NAME, "utf-8")
+	await setProperty(serverProperties, "level-name", world)
+}
+
 async function setSeed(seed) {
 	console.log(`Setting seed ${seed} ...`)
 	const serverProperties = await promises.readFile(FILE_NAME, "utf-8")
-	const updated = getUpdatedServerProperties(serverProperties, seed)
-
-	await promises.writeFile(FILE_NAME, updated, "utf-8")
+	await setProperty(serverProperties, "level-seed", seed)
 }
 
 async function resetSeed() {
 	console.log("Resetting seed ...")
 	const serverProperties = await promises.readFile(FILE_NAME, "utf-8")
-	const updated = getUpdatedServerProperties(serverProperties)
-
-	await promises.writeFile(FILE_NAME, updated, "utf-8")
+	await setProperty(serverProperties, "level-seed")
 }
 
 async function seedExists() {
@@ -41,10 +43,9 @@ async function seedExists() {
 	return end - start > 1
 }
 
-function getUpdatedServerProperties(serverProperties: string, seed: string = "") {
-	const key = "level-seed="
-	const start = serverProperties.indexOf(key) + key.length
+async function setProperty(serverProperties: string, key: string, value: string = "") {
+	const start = serverProperties.indexOf(key) + key.length + 1
 	const end = serverProperties.indexOf("\n", start)
-
-	return serverProperties.substring(0, start) + seed + serverProperties.substring(end)
+	const updated = serverProperties.substring(0, start) + value + serverProperties.substring(end)
+	await promises.writeFile(FILE_NAME, updated, "utf-8")
 }

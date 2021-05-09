@@ -1,12 +1,14 @@
 # Minecraft Speedrun Server
 
-This project provides a better startup for a speedrun server as it automatically:
+This project provides a better startup for a speedrun server as it can automatically:
 
--   Deletes the world folder after stopping the server
--   Restarts the server
--   Turns off auto-save to prevent the lag every 5 minutes
--   Moves datapacks to the world folder **(optional)**
--   Sets the seed from a list of seeds sequentially **(optional)**
+-   Delete the world folder after stopping the server
+-   Rename the world folder after stopping the server to persist previously played worlds
+-   Restart the server
+-   Turn off auto-save to prevent the lag every 5 minutes
+-   Move datapacks to the world folder
+-   Set the seed from a list of seeds sequentially
+-   Load a specific world for All Advancement runs
 
 ## Prerequisites
 
@@ -36,7 +38,8 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
     "DATA_PACK": false, // set to true, if datapacks should be copied into the world
     "SEEDS": ["-9223372036854775808", "9223372036854775807"], // List of set seeds that are played one by one, set [] to disable this option
     "AUTO_SAVE":  false, // Turn off to prevent 5 minute lag, default false
-    "KEEP_WORLDS":  false // Turn on if worlds should be renamed instead of deleted, default false
+    "KEEP_WORLDS":  false, // Turn on if worlds should be renamed instead of deleted, default false
+    "LOAD_WORLD": "world_2021-05-21_15-31-24" // Set world folder name that should be loaded on server start, leave empty ("") to disable
 }
 ```
 
@@ -49,3 +52,8 @@ minecraft server and put the unzipped datapacks inside and enable it in the `spe
 
 Add seeds to the `SEEDS` list, if you want to restart the world with set seeds. On each restart, the first seed of the list will be loaded and removed from the list.
 This is really helpful, if you want to do some speedrun battles with a pool of set seeds.
+
+### All Advancements
+
+Set `AUTO_SAVE` and `KEEP_WORLDS` to `true` while resetting for a good seed. Once a playable seed is found,
+set `LOAD_WORLD` to the world folder name of that world to prevent future resets.

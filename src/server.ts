@@ -2,15 +2,19 @@ import { ChildProcess, spawn } from "child_process"
 import shell from "shelljs"
 import { parseConfiguration } from "./adapter/configuration"
 import { initSeed } from "./adapter/serverProperties"
-import { deleteWorldFolder } from "./adapter/world"
+import { deleteWorldFolder, renameWorldFolder } from "./adapter/world"
 
 async function startServer() {
 	setupErrorListeners()
 
 	const configuration = await parseConfiguration()
-	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS, AUTO_SAVE } = configuration
+	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS, AUTO_SAVE, KEEP_WORLDS } = configuration
 
-	deleteWorldFolder()
+	if (KEEP_WORLDS) {
+		renameWorldFolder()
+	} else {
+		deleteWorldFolder()
+	}
 	await initSeed(SEEDS, configuration)
 
 	const server = spawn("java", [`-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])

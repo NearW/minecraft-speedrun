@@ -6,4 +6,5 @@ export interface Configuration {
 	DATA_PACK: boolean
 	SEEDS: string[]
 	AUTO_SAVE: boolean
+	KEEP_WORLDS: boolean
 }

@@ -5,4 +5,5 @@ export interface Configuration {
 	WHITELIST: string[]
 	DATA_PACK: boolean
 	SEEDS: string[]
+	AUTO_SAVE: boolean
 }

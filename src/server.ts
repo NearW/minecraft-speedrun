@@ -8,7 +8,7 @@ async function startServer() {
 	setupErrorListeners()
 
 	const configuration = await parseConfiguration()
-	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS } = configuration
+	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS, AUTO_SAVE } = configuration
 
 	deleteWorldFolder()
 	await initSeed(SEEDS, configuration)
@@ -27,7 +27,11 @@ async function startServer() {
 				console.log(`Making ${op} an operator.`)
 				server.stdin.write(`/op ${op}\n`)
 			}
-			server.stdin.write("/save-off\n")
+
+			if (!AUTO_SAVE) {
+				console.log(`Turning auto-save off.`)
+				server.stdin.write("/save-off\n")
+			}
 
 			if (DATA_PACK) {
 				shell.cp("-Rf", "datapacks/.", "world/datapacks")

@@ -39,7 +39,7 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
     "SEEDS": ["-9223372036854775808", "9223372036854775807"], // List of set seeds that are played one by one, set [] to disable this option
     "AUTO_SAVE":  false, // Turn off to prevent 5 minute lag, default false
     "KEEP_WORLDS":  false, // Turn on if worlds should be renamed instead of deleted, default false
-    "LOAD_WORLD": "world_2021-05-21_15-31-24" // Set world folder name that should be loaded on server start, leave empty ("") to disable
+    "LOAD_WORLD": "world_2021-05-21_15-31-24" // Default: "". Set world folder name that should be loaded on server start instead of deleting/archiving the world.
 }
 ```
 

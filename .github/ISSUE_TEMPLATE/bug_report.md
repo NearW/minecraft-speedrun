@@ -17,7 +17,7 @@ Steps to reproduce the behavior:
 3. Scroll down to '....'
 4. See error
 
-**Files**
+**Files**:
 If applicable, add screenshots and the terminal output to help explain your problem.
 Also add the following files to your bug report:
 

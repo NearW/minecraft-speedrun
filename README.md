@@ -37,9 +37,10 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
     "WHITELIST": ["Notch"], // List of whitelisted players
     "DATA_PACK": false, // set to true, if datapacks should be copied into the world
     "SEEDS": ["-9223372036854775808", "9223372036854775807"], // List of set seeds that are played one by one, set [] to disable this option
-    "AUTO_SAVE":  false, // Turn off to prevent 5 minute lag, default false
-    "KEEP_WORLDS":  false, // Turn on if worlds should be renamed instead of deleted, default false
-    "LOAD_WORLD": "world_2021-05-21_15-31-24" // Default: "". Set world folder name that should be loaded on server start instead of deleting/archiving the world.
+    "AUTO_SAVE":  false, // Turn off to prevent 5 minute lag
+    "KEEP_WORLDS":  false, // Turn on if worlds should be renamed instead of deleted
+    "LOAD_WORLD": "world_2021-05-21_15-31-24", // Set world folder name that should be loaded on server start instead of deleting/archiving the world.
+    "JAR_NAME": "server.jar" // Set this value in case you use a different jar, e.g. by using a fabric server.
 }
 ```
 
@@ -53,7 +54,8 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
     "SEEDS": [],
     "AUTO_SAVE":  false,
     "KEEP_WORLDS":  false,
-    "LOAD_WORLD": ""
+    "LOAD_WORLD": "",
+    "JAR_NAME": "server.jar"
 }
 ```
 

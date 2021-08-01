@@ -1,5 +1,5 @@
 import { validateConfiguration } from "./configuration"
-import { Configuration } from "../model/configuration"
+import { ConfigurationApi } from "../model/configurationApi"
 
 describe("Configuration", () => {
 	function testShouldFail() {
@@ -22,7 +22,7 @@ describe("Configuration", () => {
 
 		it("should throw an error if mandatory value is missing", () => {
 			const message = "Error during validation. Missing configuration values for: MAX_RAM."
-			const configuration: Configuration = { MIN_RAM: 4, MAX_RAM: undefined }
+			const configuration = { MIN_RAM: 4, MAX_RAM: undefined }
 
 			try {
 				validateConfiguration(configuration)
@@ -33,13 +33,13 @@ describe("Configuration", () => {
 		})
 
 		it("should not throw an error if configuration is valid", () => {
-			const configuration: Configuration = { MIN_RAM: 4, MAX_RAM: 8 }
+			const configuration: ConfigurationApi = { MIN_RAM: 4, MAX_RAM: 8 }
 
 			validateConfiguration(configuration)
 		})
 
 		it("should not throw an error if optional property exists without a value", () => {
-			const configuration: Configuration = { MIN_RAM: 4, MAX_RAM: 8, DATA_PACK: undefined }
+			const configuration: ConfigurationApi = { MIN_RAM: 4, MAX_RAM: 8, DATA_PACK: undefined }
 
 			validateConfiguration(configuration)
 		})

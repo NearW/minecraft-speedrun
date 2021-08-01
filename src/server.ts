@@ -3,14 +3,12 @@ import shell from "shelljs"
 import { parseConfiguration } from "./adapter/configuration"
 import { initSeed, setWorld } from "./adapter/serverProperties"
 import { deleteWorldFolder, renameWorldFolder } from "./adapter/world"
-import { validateConfiguration } from "./validation/configuration"
 
 async function startServer() {
 	setupErrorListeners()
 
 	const configuration = await parseConfiguration()
-	validateConfiguration(configuration)
-	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS, AUTO_SAVE, KEEP_WORLDS, LOAD_WORLD } = configuration
+	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS, AUTO_SAVE, KEEP_WORLDS, LOAD_WORLD, JAR_NAME } = configuration
 
 	if (LOAD_WORLD) {
 		await setWorld(LOAD_WORLD)
@@ -23,7 +21,7 @@ async function startServer() {
 		await initSeed(SEEDS, configuration)
 	}
 
-	const server = spawn("java", [`-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])
+	const server = spawn("java", [`-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", JAR_NAME, "nogui"])
 	redirectStdio(server)
 	setupExitListener(server)
 
@@ -49,6 +47,11 @@ async function startServer() {
 				server.stdin.write("/reload\n")
 			}
 		}
+	})
+
+	server.stderr.on("data", () => {
+		server.kill()
+		process.exit(1)
 	})
 
 	server.on("exit", async () => {

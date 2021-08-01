@@ -1,6 +1,6 @@
-import { Configuration } from "../model/configuration"
+import { ConfigurationApi } from "../model/configurationApi"
 
-export function validateConfiguration(configuration: Configuration) {
+export function validateConfiguration(configuration: ConfigurationApi) {
 	const mandatoryFields = new Set(["MIN_RAM", "MAX_RAM"])
 	const missingValues = []
 

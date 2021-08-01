@@ -7,5 +7,6 @@
 	"SEEDS": ["-9223372036854775808", "9223372036854775807"],
 	"AUTO_SAVE": false,
 	"KEEP_WORLDS": false,
-	"LOAD_WORLD": ""
+	"LOAD_WORLD": "",
+	"JAR_NAME": "server.jar"
 }

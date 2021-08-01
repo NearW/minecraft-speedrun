@@ -43,6 +43,8 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
 }
 ```
 
+-   Type in `/exit` to stop the server completely or simply use the exit button of the terminal.
+
 ### Datapacks
 
 In order to automatically add datapacks to your world on each restart, add a folder named `datapacks` to the root of your

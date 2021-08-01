@@ -23,6 +23,7 @@ async function startServer() {
 
 	const server = spawn("java", [`-Xms${MIN_RAM}G`, `-Xmx${MAX_RAM}G`, "-jar", "server.jar", "nogui"])
 	redirectStdio(server)
+	setupExitListener(server)
 
 	server.stdout.on("data", data => {
 		if (data.includes('For help, type "help"')) {
@@ -63,6 +64,15 @@ function setupErrorListeners() {
 	process.on("unhandledRejection", rejection => {
 		console.log(rejection)
 		process.exit(1)
+	})
+}
+
+function setupExitListener(server) {
+	process.stdin.on("data", data => {
+		if (data.includes("/exit")) {
+			server.kill()
+			process.exit(0)
+		}
 	})
 }
 

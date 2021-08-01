@@ -43,6 +43,20 @@ _Note: Enabling flight will prevent random disconnects when traveling too fast v
 }
 ```
 
+#### Defaults, if not set
+
+```ts
+{
+    "OP": [],
+    "WHITELIST": [],
+    "DATA_PACK": false,
+    "SEEDS": [],
+    "AUTO_SAVE":  false,
+    "KEEP_WORLDS":  false,
+    "LOAD_WORLD": ""
+}
+```
+
 -   Type in `/exit` to stop the server completely or simply use the exit button of the terminal.
 
 ### Datapacks

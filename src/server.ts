@@ -3,11 +3,13 @@ import shell from "shelljs"
 import { parseConfiguration } from "./adapter/configuration"
 import { initSeed, setWorld } from "./adapter/serverProperties"
 import { deleteWorldFolder, renameWorldFolder } from "./adapter/world"
+import { validateConfiguration } from "./validation/configuration"
 
 async function startServer() {
 	setupErrorListeners()
 
 	const configuration = await parseConfiguration()
+	validateConfiguration(configuration)
 	const { MIN_RAM, MAX_RAM, OP, WHITELIST, DATA_PACK, SEEDS, AUTO_SAVE, KEEP_WORLDS, LOAD_WORLD } = configuration
 
 	if (LOAD_WORLD) {
